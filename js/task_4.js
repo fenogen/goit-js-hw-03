@@ -1,35 +1,44 @@
-// Напиши функцию formatString(string) которая принимает строку и форматирует ее если необходимо.
-// Если длина строки не превышает 40 символов, функция возвращает ее в исходном виде.
-// Если длина больше 40 символов, то функция обрезает строку до 40 - ка символов и добавляет в конец строки троеточие '...',
-// после чего возвращает укороченную версию.
+
+// Напиши функцию countTotalSalary(employees) принимающую объект зарплат.
+// Функция считает общую сумму запрплаты работников и возращает ее.
+// Каждое поле объекта, передаваемого в функцию, имеет вид "имя": "зарплата".
+
 
 
 'use strict';
 
 
-const formatString = function (string) {
 
-    const textArray = string.split('');
+const countTotalSalary = function (employees) {
+    console.table(employees);
 
-    const textLength = textArray.length;
+    let total = 0;
 
-    if (textLength > 40) {
-        textArray.length = 40;
-        const textString = textArray.join('');
-        const textEnd = textString + '...';
-        console.log(textEnd);
-        console.log(`Общая длина строки: ${textEnd.length}`);
-        return;
+    for (const key in employees) {
+        const value = employees[key];
+        total += value;
     }
-        console.log(string);
-        console.log(`Общая длина строки: ${string.length}`);
-}
+    console.log(`Общая сумма запрплат работников = ${total}`);
+    return;
+};
 
-formatString('Curabitur ligula sapien, tincidunt non.');
 
-formatString('Vestibulum facilisis, purus nec pulvinar iaculis.');
 
-formatString('Curabitur ligula sapien.');
 
-formatString('Nunc sed turpis. Curabitur a felis in nunc fringilla tristique.');
+countTotalSalary({
+}) // 0
+
+countTotalSalary({
+    mango: 100,
+    poly: 150,
+    alfred: 80,
+  }) // 330
+
+
+countTotalSalary({
+    kiwi: 200,
+    lux: 50,
+    chelsy: 150,
+  }) // 400
+
 
