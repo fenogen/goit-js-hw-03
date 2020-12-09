@@ -1,30 +1,47 @@
-// // Напиши фукцнию findLongestWord(string), которая принимает параметром произвольную строку 
-// (в строке будут только слова и пробелы) и возвращает самое длинное слово в этой строке.
-
-
+// Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и
+// возвращает имя самого продуктивного(который выполнил больше всех задач).
+// Сотрудники и кол - во выполненых задач содержатся как свойства объекта в формате "имя": "кол-во задач".
 
 'use strict';
 
-
-const findLongestWord = function (string) {
-    const textArray = string.split(' ');
-    console.log(textArray);
-    let word = '';                                    // ----------> Сравнили с пустой стройкой
-
-    for (let i = 0; i < textArray.length; i += 1) {
-        const item = textArray[i];
-        
-        if (word.length < item.length) {
-            word = item;   
-        }
+const findBestEmployee = function (employees) {
+  console.table(employees);
+  
+  let empValue = 0;
+  let empName;
+  
+  for (const key in employees) {
+    const value = employees[key];
+    
+    if (empValue < value) {
+      empValue = value;
+      empName = key;
     }
-    console.log(word);
-    return;
-}
+  }
+  
+  console.log(
+  `Самый продуктивный сотрудник года: ${empName}. Он выполнил - ${empValue} задач`,
+  )
+  return;
+};
+
+findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  }) // lorence
 
 
-findLongestWord('The quick brown fox jumped over the lazy dog'); // 'jumped'
+findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  }) // mango
 
-findLongestWord('Google do a roll'); // 'Google'
-
-findLongestWord('May the force be with you'); // 'force'
+findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  }) // lux
