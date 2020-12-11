@@ -15,7 +15,15 @@ const findBestEmployee = function (employees) {
       empName = key;
     }
   }
-  
+
+  // const arr = Object.entries(employees);               //------> Второй способ вычесления.
+  // for (let i = 0; i < arr.length; i += 1) {
+  //   if (arr[i][1] > empValue) {
+  //     empValue = arr[i][1];
+  //     empName = arr[i][0];
+  //   }
+  // }
+
   console.log(
   `Самый продуктивный сотрудник года: ${empName}. Он выполнил - ${empValue} задач`,
   )
